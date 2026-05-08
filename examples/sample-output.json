@@ -1,0 +1,76 @@
+{
+  "$schema": "https://github.com/minyansh7/aora-methodology/blob/main/schema/polling-output.schema.json",
+  "spec_version": "1.0",
+  "engagement_id": "EXAMPLE-001",
+  "case_study": "sydney-solar",
+  "kickoff_date": "2026-05-01",
+  "verification_date": "2026-06-15",
+  "subject": "[Premium Sydney Solar+Battery Installer — sample subject, redacted]",
+  "competitors": ["Competitor A", "Competitor B"],
+  "platforms": ["chatgpt", "perplexity", "google_aio", "claude", "brave"],
+  "match_rules": {
+    "case_sensitive": false,
+    "scope": "answer_paragraph",
+    "permitted_variations": ["[brand]", "[brand] Sydney", "[brand] Northern Beaches"]
+  },
+  "queries": [
+    {
+      "id": "Q05",
+      "query": "best solar installer Sydney with battery and warranty",
+      "intent_class": "buyer-intent-geo",
+      "results": {
+        "chatgpt": {
+          "checkins": [
+            { "day": 7, "polls": 60, "cited": 18, "rate": 0.300, "ci90_lower": 0.211, "ci90_upper": 0.408 },
+            { "day": 14, "polls": 60, "cited": 27, "rate": 0.450, "ci90_lower": 0.345, "ci90_upper": 0.558 },
+            { "day": 21, "polls": 60, "cited": 33, "rate": 0.550, "ci90_lower": 0.442, "ci90_upper": 0.655 },
+            { "day": 30, "polls": 60, "cited": 37, "rate": 0.617, "ci90_lower": 0.508, "ci90_upper": 0.715 }
+          ],
+          "trajectory": "compounding"
+        },
+        "perplexity": {
+          "checkins": [
+            { "day": 7, "polls": 60, "cited": 4, "rate": 0.067, "ci90_lower": 0.027, "ci90_upper": 0.151 },
+            { "day": 14, "polls": 60, "cited": 7, "rate": 0.117, "ci90_lower": 0.060, "ci90_upper": 0.211 },
+            { "day": 21, "polls": 60, "cited": 10, "rate": 0.167, "ci90_lower": 0.097, "ci90_upper": 0.270 },
+            { "day": 30, "polls": 60, "cited": 12, "rate": 0.200, "ci90_lower": 0.124, "ci90_upper": 0.306 }
+          ],
+          "trajectory": "compounding"
+        },
+        "google_aio": {
+          "checkins": [
+            { "day": 7, "polls": 60, "cited": 42, "rate": 0.700, "ci90_lower": 0.594, "ci90_upper": 0.789 },
+            { "day": 14, "polls": 60, "cited": 50, "rate": 0.833, "ci90_lower": 0.737, "ci90_upper": 0.900 },
+            { "day": 21, "polls": 60, "cited": 53, "rate": 0.883, "ci90_lower": 0.795, "ci90_upper": 0.937 },
+            { "day": 30, "polls": 60, "cited": 54, "rate": 0.900, "ci90_lower": 0.815, "ci90_upper": 0.950 }
+          ],
+          "trajectory": "compounding"
+        },
+        "claude": {
+          "checkins": [
+            { "day": 7, "polls": 60, "cited": 12, "rate": 0.200, "ci90_lower": 0.124, "ci90_upper": 0.306 },
+            { "day": 14, "polls": 60, "cited": 19, "rate": 0.317, "ci90_lower": 0.225, "ci90_upper": 0.425 },
+            { "day": 21, "polls": 60, "cited": 24, "rate": 0.400, "ci90_lower": 0.299, "ci90_upper": 0.510 },
+            { "day": 30, "polls": 60, "cited": 28, "rate": 0.467, "ci90_lower": 0.362, "ci90_upper": 0.575 }
+          ],
+          "trajectory": "compounding"
+        },
+        "brave_sanity": {
+          "checkins": [
+            { "day": 30, "polls": 60, "cited": 31, "rate": 0.517, "ci90_lower": 0.411, "ci90_upper": 0.622 }
+          ],
+          "note": "Brave-substrate sanity check; not counted toward 4-platform measurement"
+        }
+      },
+      "cited_at_day_45": true,
+      "verdict": "win"
+    }
+  ],
+  "summary": {
+    "queries_cited_at_day_45": 11,
+    "queries_invisible_at_day_45": 4,
+    "refund_threshold": 5,
+    "refund_triggered": false,
+    "note": "Citation Pack delivered above the success threshold. 11/15 queries cited on at least one platform by Day 45."
+  }
+}
