@@ -1,6 +1,6 @@
 # AORA Methodology
 
-Open methodology for measuring AI search citation visibility — across **ChatGPT, Perplexity, Google AI Overviews, and Claude**.
+Open methodology for measuring AI search citation visibility — across **ChatGPT, Perplexity, Google AI Overviews, and Brave Search**.
 
 This repo is the public record of how [AORA](https://minyansh7.github.io/geo-sydney/) measures whether a brand is cited in AI search responses, what statistical rigor we apply, and how a customer (or a third-party reviewer) can replicate every claim we make.
 
@@ -40,15 +40,16 @@ See `wilson_ci.ts` for the implementation. Run it with `bun wilson_ci.ts` to see
 
 AORA reports each platform separately, with its own confidence interval. **Aggregating to a single rate hides the gap.**
 
-A brand might be cited 70% on Perplexity, 30% on Google AI Overviews, 50% on ChatGPT, and 80% on Claude — for the same query. The aggregate is meaningless. The per-platform breakdown tells you which fix moves which platform.
+A brand might be cited 70% on Perplexity, 30% on Google AI Overviews, 50% on ChatGPT, and 60% on Brave — for the same query. The aggregate is meaningless. The per-platform breakdown tells you which fix moves which platform.
 
 | Platform | Pulls from | What moves the needle |
 |---|---|---|
 | **Perplexity** | Live web search + Reddit/Quora heavily weighted | Long Reddit threads, Quora answers, recent freshness |
 | **ChatGPT** | Training data + `web_search` retrieval | Long-form expert content, schema.org markup, Wikipedia mentions |
 | **Google AI Overviews** | Google Search index + featured-snippet logic | Schema markup, FAQ pages, Bing/IndexNow cross-listing |
-| **Claude** | Training data + `web_search` (routes through Brave) | Brave-friendly content, structured data, methodology essays |
-| Brave (sanity layer) | Independent crawl | Reported as 5th column; doesn't count toward the 4-platform measurement |
+| **Brave Search** | Independent web crawl + ranking | Brave-friendly content, structured data, methodology essays. Also the substrate Anthropic's Claude routes through for `web_search`, so polling Brave covers Claude indirectly. |
+
+> **Why Brave, not Claude directly?** Anthropic's Claude `web_search` tool routes through Brave Search — Claude doesn't have its own crawl index. Polling Claude directly would just be polling Brave with Anthropic's prompt template wrapped around it. Polling Brave directly is simpler, cheaper, and isolates the substrate signal from any Anthropic-specific prompt-shaping noise. Claude users see Brave's results re-paraphrased — so what gets cited on Brave is what Claude can cite.
 
 ### 4. Four-checkin trajectory
 

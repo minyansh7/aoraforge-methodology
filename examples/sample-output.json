@@ -7,7 +7,10 @@
   "verification_date": "2026-06-15",
   "subject": "[Premium Sydney Solar+Battery Installer — sample subject, redacted]",
   "competitors": ["Competitor A", "Competitor B"],
-  "platforms": ["chatgpt", "perplexity", "google_aio", "claude", "brave"],
+  "platforms": ["chatgpt", "perplexity", "google_aio", "brave"],
+  "platform_notes": {
+    "brave": "Brave is the substrate behind Anthropic's Claude `web_search` tool — so polling Brave covers Claude users indirectly. No separate Claude column."
+  },
   "match_rules": {
     "case_sensitive": false,
     "scope": "answer_paragraph",
@@ -46,20 +49,15 @@
           ],
           "trajectory": "compounding"
         },
-        "claude": {
+        "brave": {
           "checkins": [
             { "day": 7, "polls": 60, "cited": 12, "rate": 0.200, "ci90_lower": 0.124, "ci90_upper": 0.306 },
             { "day": 14, "polls": 60, "cited": 19, "rate": 0.317, "ci90_lower": 0.225, "ci90_upper": 0.425 },
             { "day": 21, "polls": 60, "cited": 24, "rate": 0.400, "ci90_lower": 0.299, "ci90_upper": 0.510 },
             { "day": 30, "polls": 60, "cited": 28, "rate": 0.467, "ci90_lower": 0.362, "ci90_upper": 0.575 }
           ],
-          "trajectory": "compounding"
-        },
-        "brave_sanity": {
-          "checkins": [
-            { "day": 30, "polls": 60, "cited": 31, "rate": 0.517, "ci90_lower": 0.411, "ci90_upper": 0.622 }
-          ],
-          "note": "Brave-substrate sanity check; not counted toward 4-platform measurement"
+          "trajectory": "compounding",
+          "note": "Brave is also Claude's `web_search` substrate — this rate covers Claude users."
         }
       },
       "cited_at_day_45": true,

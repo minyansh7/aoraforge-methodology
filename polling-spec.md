@@ -9,7 +9,7 @@ A measurement is always a `(query, platform, check-in-day)` tuple, never a query
 ```
 measurement = {
   query: string,           // Pre-registered at Day 0; locked
-  platform: enum,          // ChatGPT | Perplexity | GoogleAIO | Claude | Brave (sanity)
+  platform: enum,          // ChatGPT | Perplexity | GoogleAIO | Brave
   checkinDay: 7 | 14 | 21 | 30,
   polls: number,           // Calibrated; typically 30–80 per (query, platform, day)
   citedCount: number,      // How many polls returned the brand by name
@@ -65,8 +65,7 @@ Each platform is polled via its public-facing API or web interface, *not* via a 
 | ChatGPT | OpenAI API (`gpt-4o`) with `web_search` tool enabled |
 | Perplexity | Perplexity API (`sonar-pro`) — live web retrieval |
 | Google AI Overviews | Headless browser scrape of Google SERP with `udm=14` (AI mode) — Google has no public AIO API |
-| Claude | Anthropic API (`claude-sonnet-4-5`) with `web_search` tool — routes through Brave |
-| Brave | Brave Search API — sanity check on Claude's substrate |
+| Brave | Brave Search API — also covers Claude indirectly, since Anthropic's `web_search` tool routes through Brave (no separate Claude crawl index). Polling Brave is the substrate-correct way to measure what Claude can cite. |
 
 Each query is sent fresh on each poll. No caching, no deduplication. The platform's own infrastructure decides what to surface, and we measure what the user would see.
 
@@ -105,10 +104,9 @@ A single Day-30 reading collapses all five to one number and loses every diagnos
 | Platform | Refresh model |
 |---|---|
 | Perplexity | Essentially real-time live retrieval |
-| Brave | Continuous crawl; near-real-time |
+| Brave | Continuous crawl; near-real-time. Also the substrate behind Claude's `web_search`. |
 | Google AIO | Roughly weekly model refresh; SERP cache shorter |
-| ChatGPT | Training cuts + retrieval; lag varies by model release |
-| Claude | Training cuts + Brave-routed `web_search`; similar to ChatGPT |
+| ChatGPT | Training cuts + `web_search` retrieval; lag varies by model release |
 
 A "Day-30 audit" arrived at by polling each platform once on Day 30 sees four different layers of staleness mashed into one number. The four-checkin trajectory makes the refresh-cadence variance visible in the data itself.
 

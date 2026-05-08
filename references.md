@@ -34,7 +34,7 @@ Background on the click-through erosion that makes AI search citation visibility
 The platform-independence reasoning draws on first-party documentation and observed crawl/retrieval behavior:
 
 - **OpenAI** — `gpt-4o` model card and `web_search` tool documentation
-- **Anthropic** — `claude-sonnet-4-5` model card; `web_search` tool ([Anthropic docs on `web_search`](https://docs.anthropic.com/en/docs/build-with-claude/tool-use/web-search-tool)) routes through Brave
+- **Brave Search** — public API + ranking documentation. Brave is also the substrate Anthropic's Claude routes through via the [`web_search` tool](https://docs.anthropic.com/en/docs/build-with-claude/tool-use/web-search-tool); we therefore poll Brave directly rather than polling Claude separately.
 - **Perplexity** — `sonar-pro` API; weighting toward Reddit/Quora is observed empirically, not officially documented
 - **Google** — AI Overviews surface from `udm=14` mode; selection logic blended from featured-snippet and retrieval-augmented generation. No public spec; behavior inferred from large-N observation.
 
