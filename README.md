@@ -1,4 +1,4 @@
-# AORAGORGE Methodology
+# Aoraforge Methodology
 
 Open methodology for measuring AI search citation visibility — across **ChatGPT, Perplexity, Google AI Overviews, and Brave Search**.
 
