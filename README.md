@@ -1,8 +1,8 @@
-# AORA Methodology
+# AORAGORGE Methodology
 
 Open methodology for measuring AI search citation visibility — across **ChatGPT, Perplexity, Google AI Overviews, and Brave Search**.
 
-This repo is the public record of how [AORA](https://minyansh7.github.io/geo-sydney/) measures whether a brand is cited in AI search responses, what statistical rigor we apply, and how a customer (or a third-party reviewer) can replicate every claim we make.
+This repo is the public record of how [AORAFORGE]) measures whether a brand is cited in AI search responses, what statistical rigor we apply, and how a customer (or a third-party reviewer) can replicate every claim we make.
 
 If you've read AORA's site and wondered *"is this just marketing or is the methodology real?"* — this repo is the answer. Everything we do statistically is here.
 
@@ -78,7 +78,7 @@ See `polling-spec.md` for the formal spec.
 ## Replication
 
 ```bash
-git clone https://github.com/minyansh7/aora-methodology
+git clone https://github.com/minyansh7/aoraforge-methodology
 cd aora-methodology
 bun wilson_ci.ts        # Worked examples + edge cases
 ```
@@ -93,9 +93,3 @@ Reading order:
 ## License
 
 [MIT](./LICENSE) — copy, fork, audit, replicate. Better methodology should win.
-
-## See also
-
-- [aora.com](https://minyansh7.github.io/geo-sydney/) — services, sample reports, pricing
-- [aora.com/methodology/](https://minyansh7.github.io/geo-sydney/methodology/) — same essays in HTML form for site visitors
-- [aora.com/api/](https://minyansh7.github.io/geo-sydney/api/) — `/api/v1/methodology/*.json` for agent / LLM consumption
