@@ -14,7 +14,7 @@ If you've read AORAFORGE's site and wondered *"is this just marketing or is the 
 | [`polling-spec.md`](./polling-spec.md) | Full specification: polling cadence, query pre-registration, refund-trigger logic, four-checkin trajectory |
 | [`platform-independence.md`](./platform-independence.md) | Why ChatGPT/Perplexity/Google AI Overviews/Brave must be measured independently — what each rewards |
 | [`schema/polling-output.schema.json`](./schema/polling-output.schema.json) | JSON Schema for polling outputs |
-| [`examples/sample-queries.csv`](./examples/sample-queries.csv) | Example 15-query pre-registration set (Sydney solar+battery installer) |
+| [`examples/sample-queries.csv`](./examples/sample-queries.csv) | Example 15-query pre-registration set (fictional Lumenford workspace studio) |
 | [`examples/sample-output.json`](./examples/sample-output.json) | Synthetic/anonymized polling output: per-platform citation rate + Wilson 90% CI |
 | [`references.md`](./references.md) | Academic citations: Wilson (1927), Brown/Cai/DasGupta (2001), and others |
 | [`glossary.md`](./glossary.md) | Canonical terms used across AORAFORGE methodology and reports |

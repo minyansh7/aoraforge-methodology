@@ -28,7 +28,7 @@ At the Day-0 kickoff call, the customer and AORAFORGE jointly agree on:
 
 1. **15 target queries.** Mix typical: 4 brand-adjacent, 6 buyer-intent geo, 5 educational/comparison.
 2. **2 named competitors.** For head-to-head measurement.
-3. **The brand-name match rules.** Exact match, or with permitted variations (e.g., "Solarpro" matches "Solarpro Sydney" but not "Solar Pro" if the customer chooses tighter rules).
+3. **The brand-name match rules.** Exact match, or with permitted variations (e.g., "FictionalBrand" matches "FictionalBrand Lumenford" but not "Fictional Brand" if the customer chooses tighter rules).
 4. **The "cited" definition.** Either "brand mentioned by name in the answer paragraph" (default) or "brand mentioned anywhere in the response including footnotes" (looser).
 
 These four items go into a service-agreement appendix signed by both parties.

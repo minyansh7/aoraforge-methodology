@@ -3,10 +3,10 @@
   "spec_version": "1.0",
   "engagement_id": "EXAMPLE-001",
   "example_status": "synthetic",
-  "case_study": "sydney-solar",
+  "case_study": "fictional-lumenford-workspace",
   "kickoff_date": "2026-05-01",
   "verification_date": "2026-06-15",
-  "subject": "[Premium Sydney Solar+Battery Installer — sample subject, redacted]",
+  "subject": "[Lumenford modular workspace studio — synthetic sample subject]",
   "competitors": ["Competitor A", "Competitor B"],
   "platforms": ["chatgpt", "perplexity", "google_aio", "brave"],
   "platform_notes": {
@@ -15,12 +15,12 @@
   "match_rules": {
     "case_sensitive": false,
     "scope": "answer_paragraph",
-    "permitted_variations": ["[brand]", "[brand] Sydney", "[brand] Northern Beaches"]
+    "permitted_variations": ["[brand]", "[brand] Lumenford", "[brand] River Ward"]
   },
   "queries": [
     {
       "id": "Q05",
-      "query": "best solar installer Sydney with battery and warranty",
+      "query": "best modular desk studio Lumenford with delivery and warranty",
       "intent_class": "buyer-intent-geo",
       "results": {
         "chatgpt": {

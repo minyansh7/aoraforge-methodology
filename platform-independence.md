@@ -6,10 +6,10 @@ ChatGPT, Perplexity, Google AI Overviews, and Brave Search are four different sy
 
 ## The same brand, four different rates
 
-Synthetic/anonymized polling output on a head-to-head Sydney solar query:
+Synthetic polling output on a head-to-head fictional Lumenford workspace query:
 
 ```
-Query: "best solar installer Sydney with battery and warranty"
+Query: "best modular desk studio Lumenford with delivery and warranty"
 Polls: 60 per platform
 
 ChatGPT      37/60 = 61.7% [51.1%, 71.3%]

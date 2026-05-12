@@ -152,7 +152,7 @@ if (import.meta.main) {
       label: "Stable winner — narrow interval, high p",
       k: 27,
       n: 30,
-      note: "Cited 27 of 30 times on Perplexity for 'best solar installer Sydney'.",
+      note: "Cited 27 of 30 times on Perplexity for 'best modular desk studio Lumenford'.",
     },
     {
       label: "Stable loser — narrow interval, low p",

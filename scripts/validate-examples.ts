@@ -6,6 +6,14 @@ import { wilsonInterval } from "../wilson_ci";
 type Json = Record<string, unknown>;
 
 const errors: string[] = [];
+const retiredExamplePattern =
+  /\b(?:Sydney|solar|Powerwall|Sungrow|NETCC|Manly|Frenches Forest|Northern Beaches|North Shore|Eastern Suburbs)\b/i;
+const fictionalExampleFiles = [
+  ["README.md", readFileSync(new URL("../README.md", import.meta.url), "utf8")],
+  ["platform-independence.md", readFileSync(new URL("../platform-independence.md", import.meta.url), "utf8")],
+  ["polling-spec.md", readFileSync(new URL("../polling-spec.md", import.meta.url), "utf8")],
+  ["wilson_ci.ts", readFileSync(new URL("../wilson_ci.ts", import.meta.url), "utf8")],
+] as const;
 
 function requireField(obj: Json, field: string, path: string): unknown {
   if (!(field in obj)) errors.push(`${path} is missing required field ${field}`);
@@ -38,6 +46,17 @@ const queries = sampleOutput.queries;
 assert(Array.isArray(queries) && queries.length > 0, "queries must be a non-empty array");
 
 const sampleQueriesCsv = readFileSync(new URL("../examples/sample-queries.csv", import.meta.url), "utf8");
+const sampleOutputJson = JSON.stringify(sampleOutput);
+for (const [file, contents] of [
+  ...fictionalExampleFiles,
+  ["examples/sample-queries.csv", sampleQueriesCsv],
+  ["examples/sample-output.json", sampleOutputJson],
+] as const) {
+  assert(
+    !retiredExamplePattern.test(contents),
+    `${file} must not reintroduce the retired location/product example family`,
+  );
+}
 const [csvHeader, ...csvRows] = sampleQueriesCsv.trim().split("\n");
 assert(
   csvHeader === "id,query,intent_class,locked_at,example_status,notes",

@@ -1,16 +1,16 @@
 id,query,intent_class,locked_at,example_status,notes
-Q01,"[brand] Sydney",brand-adjacent,2026-05-01,synthetic,Brand-name baseline; expected near-100% if cited at all
-Q02,"[brand] Northern Beaches showroom",brand-adjacent,2026-05-01,synthetic,Hyper-local brand query
-Q03,"[brand] Tesla Powerwall installer",brand-adjacent,2026-05-01,synthetic,Brand + credential pair
+Q01,"[brand] Lumenford",brand-adjacent,2026-05-01,synthetic,Brand-name baseline; expected near-100% if cited at all
+Q02,"[brand] River Ward showroom",brand-adjacent,2026-05-01,synthetic,Hyper-local brand query
+Q03,"[brand] CraftMark workspace studio",brand-adjacent,2026-05-01,synthetic,Brand + fictional credential pair
 Q04,"[brand] vs Competitor A",brand-adjacent,2026-05-01,synthetic,Head-to-head
-Q05,"best solar installer Sydney with battery and warranty",buyer-intent-geo,2026-05-01,synthetic,Highest-intent generic geo query
-Q06,"premium Tesla Powerwall installer Sydney North Shore",buyer-intent-geo,2026-05-01,synthetic,Premium-budget Sydney North Shore
-Q07,"solar battery installer Frenches Forest",buyer-intent-geo,2026-05-01,synthetic,Hyper-local
-Q08,"best Powerwall installer Manly Dee Why",buyer-intent-geo,2026-05-01,synthetic,Hyper-local
-Q09,"recommended solar installer Sydney 2026",buyer-intent-geo,2026-05-01,synthetic,Year-anchored
-Q10,"trusted solar installer Sydney Eastern Suburbs",buyer-intent-geo,2026-05-01,synthetic,Geo + trust-signal qualifier
-Q11,"Tesla Powerwall 3 installer Sydney 2026",educational-comparison,2026-05-01,synthetic,Product-knowledge query
-Q12,"Tesla Powerwall vs Sungrow Sydney",educational-comparison,2026-05-01,synthetic,Product-vs-product
-Q13,"is Tesla Powerwall worth it 2026",educational-comparison,2026-05-01,synthetic,Buyer-research query
-Q14,"NETCC accredited solar installer Sydney meaning",educational-comparison,2026-05-01,synthetic,Credential-explanation
-Q15,"how to choose solar battery installer Sydney",educational-comparison,2026-05-01,synthetic,Top-of-funnel decision query
+Q05,"best modular desk studio Lumenford with delivery and warranty",buyer-intent-geo,2026-05-01,synthetic,Highest-intent generic geo query
+Q06,"premium ergonomic workspace planner Lumenford Harbor Quarter",buyer-intent-geo,2026-05-01,synthetic,Premium-budget fictional district query
+Q07,"custom shelving studio River Ward",buyer-intent-geo,2026-05-01,synthetic,Hyper-local
+Q08,"best sit-stand desk showroom Mossmere",buyer-intent-geo,2026-05-01,synthetic,Hyper-local
+Q09,"recommended home office furniture studio Lumenford 2026",buyer-intent-geo,2026-05-01,synthetic,Year-anchored
+Q10,"trusted modular desk studio Lumenford Lantern District",buyer-intent-geo,2026-05-01,synthetic,Geo + trust-signal qualifier
+Q11,"Flexrail standing desk showroom Lumenford 2026",educational-comparison,2026-05-01,synthetic,Fictional product-knowledge query
+Q12,"Flexrail vs QuietFrame desks Lumenford",educational-comparison,2026-05-01,synthetic,Fictional product-vs-product
+Q13,"is a modular standing desk worth it 2026",educational-comparison,2026-05-01,synthetic,Buyer-research query
+Q14,"CraftMark verified workspace studio Lumenford meaning",educational-comparison,2026-05-01,synthetic,Fictional credential explanation
+Q15,"how to choose a modular desk studio Lumenford",educational-comparison,2026-05-01,synthetic,Top-of-funnel decision query
