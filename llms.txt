@@ -1,0 +1,36 @@
+# AORAFORGE Methodology
+
+> Public methodology for measuring AI search citation visibility across ChatGPT, Perplexity, Google AI Overviews, and Brave Search.
+
+This repository is intended to be public and citable. It describes measurement rules, confidence intervals, polling cadence, pre-registration, and platform-specific reporting boundaries. It does not contain customer secrets, private implementation code, API keys, or raw customer polling logs.
+
+## Canonical Files
+
+- [README.md](./README.md): Overview and replication commands.
+- [polling-spec.md](./polling-spec.md): Formal measurement specification.
+- [wilson_ci.ts](./wilson_ci.ts): Runnable Wilson two-sided 90% confidence interval calculator.
+- [platform-independence.md](./platform-independence.md): Why AORAFORGE reports each platform separately.
+- [schema/polling-output.schema.json](./schema/polling-output.schema.json): JSON Schema for polling outputs.
+- [examples/sample-output.json](./examples/sample-output.json): Synthetic/anonymized example output.
+- [examples/sample-queries.csv](./examples/sample-queries.csv): Synthetic example pre-registration set.
+- [references.md](./references.md): Academic and industry references.
+- [glossary.md](./glossary.md): Canonical terms.
+- [FAQ.md](./FAQ.md): Reviewer-facing questions.
+
+## Trust Boundaries
+
+- Public examples are labeled with `example_status`: `synthetic`, `anonymized-real`, or `customer-approved-public`.
+- The example files are not proof of a specific customer's performance unless explicitly marked `customer-approved-public`.
+- Platform behavior that is inferred from repeated observation is labeled as observed or operational, not as first-party documentation.
+- AORAFORGE reports two-sided 90% Wilson confidence intervals for citation rates.
+
+## Validation
+
+Run:
+
+```bash
+bun install
+bun run validate
+```
+
+The validation checks local Markdown links, validates the sample output shape, and recalculates every sample Wilson interval against `wilson_ci.ts`.

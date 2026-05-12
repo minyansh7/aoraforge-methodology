@@ -2,25 +2,25 @@
 
 ChatGPT, Perplexity, Google AI Overviews, and Brave Search are four different systems. They use different retrieval pipelines, different ranking models, different freshness models, and apply different rules for what they cite. **Aggregating them into one "AI citation rate" hides exactly the information you need.**
 
-> **A note on Claude:** Anthropic's Claude doesn't have its own crawl index. Its `web_search` tool routes through Brave Search. Polling Claude directly would just be polling Brave with Anthropic's prompt-template wrapped around it — same substrate, extra noise. AORA polls **Brave directly**: it's the substrate-correct measurement that covers what Claude can cite, without paying for the wrapper.
+> **A note on Claude:** AORAFORGE reports Brave as Brave. Because Anthropic documents Claude web search as a tool-mediated web retrieval path and Brave documents an independent search API/index, AORAFORGE treats Brave visibility as the cleanest Claude-adjacent substrate signal. That is an operational proxy, not a claim that Brave results and Claude answers are identical. Customers who need Claude end-user behavior can add direct Claude polling.
 
 ## The same brand, four different rates
 
-Real polling output on a head-to-head Sydney solar query, brand redacted:
+Synthetic/anonymized polling output on a head-to-head Sydney solar query:
 
 ```
 Query: "best solar installer Sydney with battery and warranty"
 Polls: 60 per platform
 
-ChatGPT      37/60 = 61.7% [49.0%, 73.0%]
-Perplexity   12/60 = 20.0% [11.6%, 31.7%]
-Google AIO   54/60 = 90.0% [80.1%, 95.4%]
-Brave        28/60 = 46.7% [34.5%, 59.2%]
+ChatGPT      37/60 = 61.7% [51.1%, 71.3%]
+Perplexity   12/60 = 20.0% [12.9%, 29.7%]
+Google AIO   54/60 = 90.0% [81.8%, 94.7%]
+Brave        28/60 = 46.7% [36.4%, 57.2%]
 ─────────────────────────────────────────
 Naive aggregate: 131/240 = 54.6%
 ```
 
-The aggregate of 54.6% is **wrong in every useful sense**. It implies the brand has medium visibility across AI search broadly. The truth is: the brand owns Google AIO, is competitive on ChatGPT, is invisible on Perplexity, and is mid-pack on Brave (which means mid-pack for Claude users too). Each is a different content-investment decision.
+The aggregate of 54.6% is **wrong in every useful sense**. It implies the brand has medium visibility across AI search broadly. The truth is: the brand owns Google AIO, is competitive on ChatGPT, is weak on Perplexity, and is mid-pack on Brave. Each is a different content-investment decision.
 
 ## What each platform rewards
 
@@ -29,7 +29,7 @@ The aggregate of 54.6% is **wrong in every useful sense**. It implies the brand 
 | **Perplexity** | Live web search; Reddit and Quora heavily weighted; recency favored | Long Reddit threads (1,500+ words), Quora answers with operator-voice depth, news coverage in the past 30 days | Stale content; corporate-tone marketing pages; sites blocked by Perplexity's crawler |
 | **ChatGPT** | Training data + `web_search` tool retrieval | Long-form expert content on the customer's own domain, Wikipedia mentions, schema.org `Article` + `FAQPage` markup, methodology essays, .edu/.gov citations | Thin pages; orphaned content; sites with no schema |
 | **Google AI Overviews** | Google Search index + featured-snippet selection logic; some retrieval-augmented generation | Schema markup (especially `LocalBusiness`, `FAQPage`, `Product`), FAQ pages, Bing/IndexNow cross-listing, structured comparison tables | Unstructured prose; sites without schema; pages Google doesn't already rank well |
-| **Brave Search** | Independent web crawl with its own ranking model. Also the substrate Anthropic's Claude `web_search` tool routes through, so polling Brave covers Claude indirectly. | Long-form, methodology-heavy content, structured data, GitHub repos, technical write-ups, methodology essays with citations | Brave-blocked or low-Brave-rank content; thin pages |
+| **Brave Search** | Independent web crawl with its own ranking model; used as AORAFORGE's Claude-adjacent retrieval proxy where Claude web search depends on Brave-provided results | Long-form, methodology-heavy content, structured data, GitHub repos, technical write-ups, methodology essays with citations | Brave-blocked or low-Brave-rank content; thin pages |
 
 ## Why fixes don't transfer cleanly
 
@@ -37,7 +37,7 @@ This matters operationally because **fixing one platform sometimes weakens anoth
 
 - Optimizing for ChatGPT (long Wikipedia-style methodology content on your domain) can weaken Perplexity (which prefers Reddit-voice, terse, first-person operator content).
 - Optimizing for Google AIO (heavy schema + FAQ pages) doesn't transfer to Perplexity (which mostly ignores schema in favor of forum content).
-- Optimizing for Brave (long-form technical content with citations) often *does* compound with ChatGPT — they share enough retrieval pattern that the same essay can lift both. Bonus: lifting Brave also lifts what Claude users see.
+- Optimizing for Brave (long-form technical content with citations) often *does* compound with ChatGPT. In AORAFORGE reports, it also improves the Claude-adjacent retrieval proxy, while direct Claude user behavior remains a separately pollable question.
 
 A monolithic AI search optimization strategy that ignores per-platform weighting is worse than no strategy: it spends real content effort on the wrong levers and reports a single number that hides the misallocation.
 
@@ -46,13 +46,13 @@ A monolithic AI search optimization strategy that ignores per-platform weighting
 Brave Search is included as a first-class platform (not a sanity check) for two reasons:
 
 1. **Direct user reach.** Brave Search has a non-trivial direct user base, especially among privacy-conscious / technical buyers. It's not just a substrate — people use it.
-2. **Claude's `web_search` substrate.** Anthropic doesn't operate a crawler. When a Claude user invokes the `web_search` tool, the underlying retrieval is Brave's. So whatever is cited on Brave is what Claude has available to cite. Polling Brave covers both Brave-direct users and Claude users with one set of polls. Cheaper and more honest than polling Claude separately.
+2. **Claude-adjacent retrieval signal.** AORAFORGE uses Brave as a retrieval proxy for Claude-adjacent web-search visibility where Claude depends on Brave-provided results. Brave polling isolates the search substrate; direct Claude polling can still be added when the question is "what does Claude answer after prompt shaping?"
 
-This gives the customer a true four-platform picture without the artifact of double-counting Brave-substrate retrieval under both "Brave" and "Claude" columns.
+This gives the customer a four-platform picture without double-counting Brave retrieval under both "Brave" and "Claude" columns.
 
 ## The kit-level summary is a navigation aid
 
-In AORA reports, the kit-level (cross-platform) summary is provided **only as a navigation aid** — a way to find which queries to drill into. The substantive measurement is always per-platform. If you read an AORA report and remember only one number per query, you're reading it wrong.
+In AORAFORGE reports, the kit-level (cross-platform) summary is provided **only as a navigation aid** — a way to find which queries to drill into. The substantive measurement is always per-platform. If you read an AORAFORGE report and remember only one number per query, you're reading it wrong.
 
 ## What to do with this in practice
 

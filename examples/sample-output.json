@@ -1,7 +1,8 @@
 {
-  "$schema": "https://github.com/minyansh7/aora-methodology/blob/main/schema/polling-output.schema.json",
+  "$schema": "https://raw.githubusercontent.com/minyansh7/aoraforge-methodology/main/schema/polling-output.schema.json",
   "spec_version": "1.0",
   "engagement_id": "EXAMPLE-001",
+  "example_status": "synthetic",
   "case_study": "sydney-solar",
   "kickoff_date": "2026-05-01",
   "verification_date": "2026-06-15",
@@ -9,7 +10,7 @@
   "competitors": ["Competitor A", "Competitor B"],
   "platforms": ["chatgpt", "perplexity", "google_aio", "brave"],
   "platform_notes": {
-    "brave": "Brave is the substrate behind Anthropic's Claude `web_search` tool — so polling Brave covers Claude users indirectly. No separate Claude column."
+    "brave": "Brave is reported as its own platform. AORAFORGE treats Brave as a Claude-adjacent retrieval proxy where Claude web search depends on Brave-provided results, but does not claim Brave output is identical to Claude output."
   },
   "match_rules": {
     "case_sensitive": false,
@@ -24,40 +25,40 @@
       "results": {
         "chatgpt": {
           "checkins": [
-            { "day": 7, "polls": 60, "cited": 18, "rate": 0.300, "ci90_lower": 0.211, "ci90_upper": 0.408 },
-            { "day": 14, "polls": 60, "cited": 27, "rate": 0.450, "ci90_lower": 0.345, "ci90_upper": 0.558 },
-            { "day": 21, "polls": 60, "cited": 33, "rate": 0.550, "ci90_lower": 0.442, "ci90_upper": 0.655 },
-            { "day": 30, "polls": 60, "cited": 37, "rate": 0.617, "ci90_lower": 0.508, "ci90_upper": 0.715 }
+            { "day": 7, "polls": 60, "cited": 18, "rate": 0.300, "ci90_lower": 0.213, "ci90_upper": 0.404 },
+            { "day": 14, "polls": 60, "cited": 27, "rate": 0.450, "ci90_lower": 0.349, "ci90_upper": 0.556 },
+            { "day": 21, "polls": 60, "cited": 33, "rate": 0.550, "ci90_lower": 0.444, "ci90_upper": 0.651 },
+            { "day": 30, "polls": 60, "cited": 37, "rate": 0.617, "ci90_lower": 0.511, "ci90_upper": 0.713 }
           ],
           "trajectory": "compounding"
         },
         "perplexity": {
           "checkins": [
-            { "day": 7, "polls": 60, "cited": 4, "rate": 0.067, "ci90_lower": 0.027, "ci90_upper": 0.151 },
-            { "day": 14, "polls": 60, "cited": 7, "rate": 0.117, "ci90_lower": 0.060, "ci90_upper": 0.211 },
-            { "day": 21, "polls": 60, "cited": 10, "rate": 0.167, "ci90_lower": 0.097, "ci90_upper": 0.270 },
-            { "day": 30, "polls": 60, "cited": 12, "rate": 0.200, "ci90_lower": 0.124, "ci90_upper": 0.306 }
+            { "day": 7, "polls": 60, "cited": 4, "rate": 0.067, "ci90_lower": 0.030, "ci90_upper": 0.140 },
+            { "day": 14, "polls": 60, "cited": 7, "rate": 0.117, "ci90_lower": 0.065, "ci90_upper": 0.202 },
+            { "day": 21, "polls": 60, "cited": 10, "rate": 0.167, "ci90_lower": 0.102, "ci90_upper": 0.260 },
+            { "day": 30, "polls": 60, "cited": 12, "rate": 0.200, "ci90_lower": 0.129, "ci90_upper": 0.297 }
           ],
           "trajectory": "compounding"
         },
         "google_aio": {
           "checkins": [
-            { "day": 7, "polls": 60, "cited": 42, "rate": 0.700, "ci90_lower": 0.594, "ci90_upper": 0.789 },
-            { "day": 14, "polls": 60, "cited": 50, "rate": 0.833, "ci90_lower": 0.737, "ci90_upper": 0.900 },
-            { "day": 21, "polls": 60, "cited": 53, "rate": 0.883, "ci90_lower": 0.795, "ci90_upper": 0.937 },
-            { "day": 30, "polls": 60, "cited": 54, "rate": 0.900, "ci90_lower": 0.815, "ci90_upper": 0.950 }
+            { "day": 7, "polls": 60, "cited": 42, "rate": 0.700, "ci90_lower": 0.596, "ci90_upper": 0.787 },
+            { "day": 14, "polls": 60, "cited": 50, "rate": 0.833, "ci90_lower": 0.740, "ci90_upper": 0.898 },
+            { "day": 21, "polls": 60, "cited": 53, "rate": 0.883, "ci90_lower": 0.798, "ci90_upper": 0.935 },
+            { "day": 30, "polls": 60, "cited": 54, "rate": 0.900, "ci90_lower": 0.818, "ci90_upper": 0.947 }
           ],
           "trajectory": "compounding"
         },
         "brave": {
           "checkins": [
-            { "day": 7, "polls": 60, "cited": 12, "rate": 0.200, "ci90_lower": 0.124, "ci90_upper": 0.306 },
-            { "day": 14, "polls": 60, "cited": 19, "rate": 0.317, "ci90_lower": 0.225, "ci90_upper": 0.425 },
-            { "day": 21, "polls": 60, "cited": 24, "rate": 0.400, "ci90_lower": 0.299, "ci90_upper": 0.510 },
-            { "day": 30, "polls": 60, "cited": 28, "rate": 0.467, "ci90_lower": 0.362, "ci90_upper": 0.575 }
+            { "day": 7, "polls": 60, "cited": 12, "rate": 0.200, "ci90_lower": 0.129, "ci90_upper": 0.297 },
+            { "day": 14, "polls": 60, "cited": 19, "rate": 0.317, "ci90_lower": 0.228, "ci90_upper": 0.422 },
+            { "day": 21, "polls": 60, "cited": 24, "rate": 0.400, "ci90_lower": 0.302, "ci90_upper": 0.506 },
+            { "day": 30, "polls": 60, "cited": 28, "rate": 0.467, "ci90_lower": 0.364, "ci90_upper": 0.572 }
           ],
           "trajectory": "compounding",
-          "note": "Brave is also Claude's `web_search` substrate — this rate covers Claude users."
+          "note": "Brave is reported as Brave. Treat as a Claude-adjacent retrieval proxy, not as an identical Claude end-user measurement."
         }
       },
       "cited_at_day_45": true,

@@ -1,0 +1,12 @@
+{
+  "name": "aoraforge-methodology",
+  "version": "1.0.0",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "validate": "bun run validate:links && bun run validate:examples && bun wilson_ci.ts",
+    "validate:links": "bun scripts/validate-links.ts",
+    "validate:examples": "bun scripts/validate-examples.ts"
+  },
+  "devDependencies": {}
+}

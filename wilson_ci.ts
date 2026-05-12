@@ -16,7 +16,7 @@
  *   badly miscalibrated, especially near p=0 and p=1. Wilson stays
  *   well-calibrated across the full [0,1] range and degrades gracefully.
  *
- * Why 90% (z = 1.645):
+ * Why 90% (two-sided z = 1.645):
  *   Industry default for non-critical A/B testing decisions (Optimizely,
  *   GrowthBook). 95% intervals are wider than needed for marketing
  *   measurement and reduce the *useful* signal — wide intervals look like
@@ -132,7 +132,7 @@ function invNormalCdf(p: number): number {
 }
 
 /**
- * Format a Wilson interval as the canonical AORA report string.
+ * Format a Wilson interval as the canonical AORAFORGE report string.
  * e.g. "12/30 = 40.0% [25.6%, 55.9%]"
  */
 export function formatInterval(ci: WilsonInterval): string {
