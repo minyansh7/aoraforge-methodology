@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this methodology, cite the repository."
+title: "AORAFORGE Methodology"
+version: "1.0.0"
+date-released: "2026-05-08"
+url: "https://github.com/minyansh7/aoraforge-methodology"
+repository-code: "https://github.com/minyansh7/aoraforge-methodology"
+license: "MIT"
+abstract: "Open methodology for measuring AI search citation visibility with pre-registered queries, platform-independent reporting, and Wilson 90% confidence intervals."
+authors:
+  - family-names: "Minyan"
+    given-names: "Shen"

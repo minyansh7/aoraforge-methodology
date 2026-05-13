@@ -1,6 +1,6 @@
-# AORA polling specification
+# AORAFORGE polling specification
 
-The full specification of how AORA measures AI search citation visibility, the cadence of polling, the pre-registration discipline that makes refund triggers binary, and how the four-checkin trajectory separates "the work landed" from "the index hadn't crawled yet."
+The full specification of how AORAFORGE measures AI search citation visibility, the cadence of polling, the pre-registration discipline that makes refund triggers binary, and how the four-checkin trajectory separates "the work landed" from "the index hadn't crawled yet."
 
 ## 1. The unit of measurement
 
@@ -24,11 +24,11 @@ Reports never aggregate beyond the platform level. A single "AI citation rate" a
 
 ### What gets pre-registered
 
-At the Day-0 kickoff call, the customer and AORA jointly agree on:
+At the Day-0 kickoff call, the customer and AORAFORGE jointly agree on:
 
 1. **15 target queries.** Mix typical: 4 brand-adjacent, 6 buyer-intent geo, 5 educational/comparison.
 2. **2 named competitors.** For head-to-head measurement.
-3. **The brand-name match rules.** Exact match, or with permitted variations (e.g., "Solarpro" matches "Solarpro Sydney" but not "Solar Pro" if the customer chooses tighter rules).
+3. **The brand-name match rules.** Exact match, or with permitted variations (e.g., "FictionalBrand" matches "FictionalBrand Lumenford" but not "Fictional Brand" if the customer chooses tighter rules).
 4. **The "cited" definition.** Either "brand mentioned by name in the answer paragraph" (default) or "brand mentioned anywhere in the response including footnotes" (looser).
 
 These four items go into a service-agreement appendix signed by both parties.
@@ -65,7 +65,7 @@ Each platform is polled via its public-facing API or web interface, *not* via a 
 | ChatGPT | OpenAI API (`gpt-4o`) with `web_search` tool enabled |
 | Perplexity | Perplexity API (`sonar-pro`) — live web retrieval |
 | Google AI Overviews | Headless browser scrape of Google SERP with `udm=14` (AI mode) — Google has no public AIO API |
-| Brave | Brave Search API — also covers Claude indirectly, since Anthropic's `web_search` tool routes through Brave (no separate Claude crawl index). Polling Brave is the substrate-correct way to measure what Claude can cite. |
+| Brave | Brave Search API. AORAFORGE reports Brave as its own platform and treats it as a Claude-adjacent retrieval proxy where Claude web search depends on Brave-provided results. Direct Claude polling can be added when the customer wants Claude end-user answer behavior. |
 
 Each query is sent fresh on each poll. No caching, no deduplication. The platform's own infrastructure decides what to surface, and we measure what the user would see.
 
@@ -104,7 +104,7 @@ A single Day-30 reading collapses all five to one number and loses every diagnos
 | Platform | Refresh model |
 |---|---|
 | Perplexity | Essentially real-time live retrieval |
-| Brave | Continuous crawl; near-real-time. Also the substrate behind Claude's `web_search`. |
+| Brave | Continuous crawl; near-real-time. Also used as AORAFORGE's Claude-adjacent retrieval proxy. |
 | Google AIO | Roughly weekly model refresh; SERP cache shorter |
 | ChatGPT | Training cuts + `web_search` retrieval; lag varies by model release |
 
@@ -112,7 +112,7 @@ A "Day-30 audit" arrived at by polling each platform once on Day 30 sees four di
 
 ## 5. The Day-45 verification + refund trigger
 
-The Citation Pack ships in 14 days. The customer publishes the threads/seeds on Days 0–14 (their cadence; AORA delivers all assets by Day 14). Polling check-ins happen at Day 7, 14, 21, 30 *post-publication of each individual thread*. The Day-45 verification poll is the last formal measurement.
+The Citation Pack ships in 14 days. The customer publishes the threads/seeds on Days 0–14 (their cadence; AORAFORGE delivers all assets by Day 14). Polling check-ins happen at Day 7, 14, 21, 30 *post-publication of each individual thread*. The Day-45 verification poll is the last formal measurement.
 
 ### The refund condition
 
@@ -134,7 +134,7 @@ The polling logs and citation parser are provided to the customer. The verdict i
 
 ## 6. What this spec does not cover
 
-- **Lift attribution**: did inbound leads/sales increase? AORA does not promise lead lift; the refund trigger is on citation visibility, which is the leading indicator. Lead/revenue attribution requires a different measurement framework that depends on the customer's CRM and conversion infrastructure.
+- **Lift attribution**: did inbound leads/sales increase? AORAFORGE does not promise lead lift; the refund trigger is on citation visibility, which is the leading indicator. Lead/revenue attribution requires a different measurement framework that depends on the customer's CRM and conversion infrastructure.
 - **Long-tail durability**: do citations persist beyond Day 45? Empirically yes for ~12 months on most platforms before re-evaluation, but no formal guarantee. Customers who want continuous monitoring can re-run the Snapshot Audit at 60–90-day cadence.
 - **Cross-platform negative interactions**: optimizing for ChatGPT (long Wikipedia-style content) sometimes weakens Perplexity (which prefers terse forum-style answers). The platform-independence section discusses this.
 
