@@ -1,6 +1,6 @@
 # Aoraforge Methodology
 
-Open methodology for measuring AI search citation visibility — across **ChatGPT, Perplexity, Google AI Overviews, and Brave Search**.
+Open methodology for measuring AI search citation visibility — across **ChatGPT, Perplexity, Google AI Overviews, and Claude**.
 
 This repo is the public record of how [AORAFORGE](https://aoraforge.com) measures whether a brand is cited in AI search responses, what statistical rigor we apply, and how a customer (or a third-party reviewer) can replicate every claim we make.
 
