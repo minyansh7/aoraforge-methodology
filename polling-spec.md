@@ -49,12 +49,7 @@ If a pre-registered query turns out to be unwinnable — no platform will cite a
 
 Each `(query, platform, check-in-day)` cell is polled enough times to bound a Wilson 90% CI to a useful width. Useful = the interval doesn't span both "is cited" and "isn't cited" verdicts.
 
-Rule of thumb:
-- Expected `p` near 0 or 1 → **30 polls** suffices (interval narrow there)
-- Expected `p` near 0.5 → **60–80 polls** to keep interval width <30 percentage points
-- Critical comparisons (head-to-head with competitor) → **120 polls**
-
-For a Citation Pack with 15 queries × 4 platforms × 4 check-ins = 240 cells, total polling ranges 7,200–28,800 individual queries depending on calibration. Cost is in seconds and pennies — the rigor is the moat.
+The rigor is the moat.
 
 ### Live retrieval vs. cached retrieval
 
@@ -65,7 +60,7 @@ Each platform is polled via its public-facing API or web interface, *not* via a 
 | ChatGPT | OpenAI API (`gpt-4o`) with `web_search` tool enabled |
 | Perplexity | Perplexity API (`sonar-pro`) — live web retrieval |
 | Google AI Overviews | Headless browser scrape of Google SERP with `udm=14` (AI mode) — Google has no public AIO API |
-| Brave | Brave Search API. AORAFORGE reports Brave as its own platform and treats it as a Claude-adjacent retrieval proxy where Claude web search depends on Brave-provided results. Direct Claude polling can be added when the customer wants Claude end-user answer behavior. |
+| Claude | Brave Search API, and treats it as a Claude-adjacent retrieval proxy where Claude web search depends on Brave-provided results. Direct Claude polling can be added when the customer wants Claude end-user answer behavior. |
 
 Each query is sent fresh on each poll. No caching, no deduplication. The platform's own infrastructure decides what to surface, and we measure what the user would see.
 
