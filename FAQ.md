@@ -18,7 +18,7 @@ One score hides the action. A brand can be strong in Google AI Overviews and wea
 
 ## Does Brave equal Claude?
 
-No. AORAFORGE reports Brave as Brave. Brave is treated as a Claude-adjacent retrieval proxy where Claude web search depends on Brave-provided results, but Claude can still add its own prompt and answer behavior. Customers who need end-user Claude behavior can add a separate Claude polling column.
+No. Brave is treated as a Claude-adjacent retrieval proxy where Claude web search depends on Brave-provided results, but Claude can still add its own prompt and answer behavior. Customers who need end-user Claude behavior can add a separate Claude polling column.
 
 ## Can a query be swapped if it performs badly?
 
